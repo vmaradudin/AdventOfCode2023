@@ -27,7 +27,7 @@ jobs:
     - name: Test
       run: dotnet test --no-build --configuration release --verbosity normal
     - name: Copy release
-      run: mv ./src/2023/bin/Release/net8.0/ /release/
+      run: mv ./src/2023/bin/Release/net8.0/ ./release/
     - name: Cache
       uses: actions/cache@v3.3.2
       with:
