@@ -27,5 +27,5 @@ jobs:
     - name: Test
       run: dotnet test --no-build --configuration release --verbosity normal
     - name: Results
-      run: dotnet run ./src/2023
+      run: dotnet run ./src/2023/2023.fsproj
       
