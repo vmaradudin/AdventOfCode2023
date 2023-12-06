@@ -25,9 +25,11 @@ jobs:
     - name: Build
       run: dotnet build --no-restore --configuration release
     - name: Test
-      run: dotnet test --no-build --configuration release --verbosity normal
+      run: dotnet test --no-build --configuration release --verbosity normal --collect "Code Coverage"
     - name: Copy release
-      run: mv ./src/2023/bin/Release/net8.0/ ./release/
+      run: |
+        find ./src/2023/bin/Release/net8.0/ -regex '.*\.(exe|pdb|xml)' -delete
+        mv ./src/2023/bin/Release/net8.0/ ./release/
     - name: Cache
       uses: actions/cache@v3.3.2
       with:

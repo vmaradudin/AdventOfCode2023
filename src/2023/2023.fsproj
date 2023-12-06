@@ -4,6 +4,9 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
+	<PropertyGroup>
+		<SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+	</PropertyGroup>
 	<ItemGroup>
 		<Compile Include="Modules\Day01.fs" />
 		<Compile Include="Modules\Day02.fs" />

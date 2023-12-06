@@ -2,6 +2,7 @@
 
 open System.IO
 
+[<System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute>]
 module Types =
     type ISolution =
         interface

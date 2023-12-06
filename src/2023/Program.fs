@@ -1,5 +1,6 @@
 ﻿open AdventOfCode2023
 
+[<System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute>]
 
 [|
 Day01.Solution
