@@ -27,5 +27,5 @@ jobs:
     - name: Test
       run: dotnet test --no-build --configuration release --verbosity normal
     - name: Results
-      run: dotnet run ./src/2023/2023.fsproj
-      
+      working-directory: /home/runner/work/AdventOfCode2023/AdventOfCode2023/src/2023
+      run: dotnet run --configuration release
