@@ -27,4 +27,4 @@ jobs:
     - name: Test
       run: dotnet test --no-build --configuration release --verbosity normal
     - name: Results
-      run: ls
+      run: src\2023\bin\Debug\net8.0\2023
