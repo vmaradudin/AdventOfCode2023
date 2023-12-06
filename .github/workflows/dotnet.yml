@@ -28,5 +28,5 @@ jobs:
       run: dotnet test --no-build --configuration release --verbosity normal
     - name: Results
       working-directory: ./src/2023
-      run: dotnet run --no-build --configuration release
+      run: ./src/2023/dotnet run --no-build --configuration release
       
