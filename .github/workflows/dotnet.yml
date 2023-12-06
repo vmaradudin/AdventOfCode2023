@@ -26,11 +26,13 @@ jobs:
       run: dotnet build --no-restore --configuration release
     - name: Test
       run: dotnet test --no-build --configuration release --verbosity normal
+    - name: Copy release
+      run: mv ./src/2023/bin/Release/net8.0/ /release/
     - name: Cache
       uses: actions/cache@v3.3.2
       with:
         key: Build
-        path: ./src/2023/bin/Release/net8.0
+        path: ./release
 
   execute:
     name: Execute
@@ -46,8 +48,7 @@ jobs:
       uses: actions/cache@v3.3.2
       with:
         key: Build
-        path: ./src/2023/bin/Release/net8.0
+        path: ./release
     - name: Run
       run: |
-        cd ./src/2023/bin/Release/net8.0
-        dotnet 2023.dll
+        dotnet ./release/2023.dll
