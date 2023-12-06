@@ -25,11 +25,16 @@ module Day06 =
             newB - newA + 1L
         else
           findChances newA newB (time, distance)
+
+    let rec findChances2 a (time, distance) =
+        if ((a > time/2L) || (a * (time - a) > distance))
+            then (time - (a * 2L) + 1L)
+            else findChances2 (a + 1L) (time,distance)
         
     let puzzle1 input = 
         input 
         |> parseInput
-        |> Array.map (fun t -> findChances 0 (t|>fst) t)
+        |> Array.map (findChances2 0L)
         |> Array.fold (*) 1L
 
     let puzzle2 (input:string array) = 

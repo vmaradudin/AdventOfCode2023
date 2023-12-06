@@ -48,7 +48,7 @@ module Day05 =
     let puzzle1 input = 
         input 
         |> parseInput 
-        |> fun (seed, mappings) -> ((seed |> Array.collect (fun (s,e) -> [|(s,s); (e - s,e - s)|])), mappings)
+        |> fun (seed, mappings) -> ((seed |> Array.collect (fun (s,e) -> [|(s,s); (e - s + 1L,e - s + 1L)|])), mappings)
         |> fun (seed, mappings) -> mappings|> Array.fold map seed
         |> Array.minBy fst |> fst
 
