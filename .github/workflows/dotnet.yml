@@ -38,10 +38,16 @@ jobs:
     needs: build
     
     steps:
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 8.0.x
     - name: Restore cache
       uses: actions/cache@v3.3.2
       with:
         key: Build
-        path: ./
+        path: ./src/2023/bin/Release/net8.0
     - name: Run
-      run: dotnet 2023.dll
+      run: |
+        cd ./src/2023/bin/Release/net8.0
+        dotnet 2023.dll
