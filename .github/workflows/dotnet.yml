@@ -27,6 +27,6 @@ jobs:
     - name: Test
       run: dotnet test --no-build --configuration release --verbosity normal
     - name: Results
-      working-directory: \src\2023\bin\Release\net8.0
-      run: 2023.exe
+      working-directory: /src/2023
+      run: dotnet run --no-build --configuration release
       
