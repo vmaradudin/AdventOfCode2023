@@ -26,5 +26,3 @@ jobs:
       run: dotnet build --no-restore --configuration release
     - name: Test
       run: dotnet test --no-build --configuration release --verbosity normal
-    - name: Run
-      run: dotnet run --no-build --configuration release --project AdventOfCode2023
