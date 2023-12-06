@@ -4,28 +4,29 @@ open AdventOfCode2023.Day01
 open Xunit
 
 module Day01Tests =
-    let testInput = 
+    let testInput1 = 
         [|
-          "1000"
-          "2000"
-          "3000"
-          ""
-          "4000"
-          ""
-          "5000"
-          "6000"
-          ""
-          "7000"
-          "8000"
-          "9000"
-          ""
-          "10000"
+          "1abc2"
+          "pqr3stu8vwx"
+          "a1b2c3d4e5f"
+          "treb7uchet"
         |]  
     
     [<Fact>]
     let ``Day 1 Puzzle 1`` () =
-        Assert.Equal(24000, puzzle1 testInput)
+        Assert.Equal(142, puzzle1 testInput1)
     
+    let testInput2 =
+        [|
+            "two1nine"
+            "eightwothree"
+            "abcone2threexyz"
+            "xtwone3four"
+            "4nineeightseven2"
+            "zoneight234"
+            "7pqrstsixteen"
+        |]
+
     [<Fact>]
     let ``Day 1 Puzzle 2`` () =
-        Assert.Equal(45000, puzzle2 testInput)      
+        Assert.Equal(281, puzzle2 testInput2)      

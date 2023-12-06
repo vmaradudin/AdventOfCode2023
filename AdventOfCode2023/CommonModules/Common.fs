@@ -7,11 +7,15 @@ module Types =
         interface
             abstract member Execute : unit
     end
+    
+    let private format i (task:string array -> 'a) =
+        task i |> string |> _.PadLeft(15, ' ')        
 
     let private execute day puzzle1 puzzle2 =
-        (File.ReadAllLines (@"inputs\Input" + (day |> string|>fun a -> a.PadLeft(2,'0')) + ".txt"))
-        |> fun i -> (day, (puzzle1 i |> string|> fun a -> a.PadLeft(15,' ')), (puzzle2 i |> string|> fun a -> a.PadLeft(15,' ')))
-        |||> printfn "Day %2d | 1: %20s | 2: %20s"
+        let start = System.DateTime.Now
+        (File.ReadAllLines ($@"inputs\Input{ day |> string|> _.PadLeft(2,'0')}.txt"))
+        |> fun i -> (day, (puzzle1 |> format i), (puzzle2 |> format i), (System.DateTime.Now - start).TotalMilliseconds)
+        |> fun (d, p1, p2, t) ->  printfn "Day %2d | 1: %20s | 2: %20s | Time: %f ms" d p1 p2 t
 
     type Solution (executer)=
         interface ISolution with
@@ -24,8 +28,3 @@ module Types =
         new (day:int, puzzle1: string[] -> string, puzzle2: string[] -> string) = new Solution(execute day puzzle1 puzzle2)
         new (day:int, puzzle1: string[] -> int, puzzle2: string[] -> string) = new Solution(execute day puzzle1 puzzle2)
         new (day:int, puzzle1: string[] -> string, puzzle2: string[] -> int) = new Solution(execute day puzzle1 puzzle2)
-        
-module Tools =
-    let flatten array = 
-        seq {for x in 0..((Array2D.length1 array)-1) -> array[x,*]}
-        |> Seq.collect id |> Array.ofSeq
