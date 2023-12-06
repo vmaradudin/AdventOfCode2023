@@ -27,5 +27,5 @@ jobs:
     - name: Test
       run: dotnet test --no-build --configuration release --verbosity normal
     - name: Results
-      run: ./src/2023/bin/release/net8.0/
+      run: dotnet run ./src/2023/bin/release/net8.0/2023.dll
       
