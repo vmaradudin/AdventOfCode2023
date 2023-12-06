@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-
+    name: Build & Test
     runs-on: ubuntu-latest
 
     steps:
@@ -26,7 +26,9 @@ jobs:
       run: dotnet build --no-restore --configuration release
     - name: Test
       run: dotnet test --no-build --configuration release --verbosity normal
+
   execute:
+    needs: build
     runs-on: ubuntu-latest
     steps:
     - name: Results
