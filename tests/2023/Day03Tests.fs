@@ -1,9 +1,9 @@
-namespace Year2023.Tests
+namespace ``2023``
 
 open AdventOfCode2023.Day03
 open Xunit
 
-module Day03Tests =
+module ``Day 03`` =
     let testInput = 
         [|
             "467..114.."
@@ -19,9 +19,9 @@ module Day03Tests =
         |]  
     
     [<Fact>]
-    let ``Day 3 Puzzle 1`` () =
+    let ``Puzzle 1`` () =
         Assert.Equal(4361, puzzle1 testInput)
     
     [<Fact>]
-    let ``Day 3 Puzzle 2`` () =
+    let ``Puzzle 2`` () =
         Assert.Equal(467835, puzzle2 testInput)      
