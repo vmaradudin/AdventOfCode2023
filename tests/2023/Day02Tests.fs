@@ -1,4 +1,4 @@
-namespace AdventOfCode2023.Tests
+namespace Year2023.Tests
 
 open AdventOfCode2023.Day02
 open Xunit

@@ -32,7 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AdventOfCode2023\AdventOfCode2023.fsproj" />
+    <ProjectReference Include="..\..\src\2023\2023.fsproj" />
   </ItemGroup>
 
 </Project>

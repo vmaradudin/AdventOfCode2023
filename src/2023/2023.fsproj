@@ -5,7 +5,6 @@
     <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
 	<ItemGroup>
-		<Compile Include="CommonModules\Common.fs" />
 		<Compile Include="Modules\Day01.fs" />
 		<Compile Include="Modules\Day02.fs" />
 		<Compile Include="Modules\Day03.fs" />
@@ -31,5 +30,8 @@
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		<Compile Include="Program.fs" />	
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\AdventOfCode.Framework\AdventOfCode.Framework.fsproj" />
 	</ItemGroup>
 </Project>

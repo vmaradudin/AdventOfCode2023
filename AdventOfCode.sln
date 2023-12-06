@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F8123DC9-4764-4E6A-9FA2-52CDDB1EC868}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{6612FDB8-BA83-4DF4-A7B1-A46BC023F4A0}"
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "AdventOfCode.Framework", "src\AdventOfCode.Framework\AdventOfCode.Framework.fsproj", "{8EB37BB2-AED6-443C-A677-870CAC9B5AA9}"
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "2023", "src\2023\2023.fsproj", "{CB9CC24E-660D-47BE-8AC7-30C1238BE58A}"
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "2023.Tests", "tests\2023\2023.Tests.fsproj", "{03EC3EF6-4B43-40F7-908B-1DBF08C19340}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F554A728-8185-4E9D-91B9-39C327A75C79}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8EB37BB2-AED6-443C-A677-870CAC9B5AA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EB37BB2-AED6-443C-A677-870CAC9B5AA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EB37BB2-AED6-443C-A677-870CAC9B5AA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EB37BB2-AED6-443C-A677-870CAC9B5AA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB9CC24E-660D-47BE-8AC7-30C1238BE58A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB9CC24E-660D-47BE-8AC7-30C1238BE58A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB9CC24E-660D-47BE-8AC7-30C1238BE58A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB9CC24E-660D-47BE-8AC7-30C1238BE58A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03EC3EF6-4B43-40F7-908B-1DBF08C19340}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03EC3EF6-4B43-40F7-908B-1DBF08C19340}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03EC3EF6-4B43-40F7-908B-1DBF08C19340}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03EC3EF6-4B43-40F7-908B-1DBF08C19340}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8EB37BB2-AED6-443C-A677-870CAC9B5AA9} = {F8123DC9-4764-4E6A-9FA2-52CDDB1EC868}
+		{CB9CC24E-660D-47BE-8AC7-30C1238BE58A} = {F8123DC9-4764-4E6A-9FA2-52CDDB1EC868}
+		{03EC3EF6-4B43-40F7-908B-1DBF08C19340} = {6612FDB8-BA83-4DF4-A7B1-A46BC023F4A0}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AAEC6A09-22DC-4F88-B75E-B25FFE9FB594}
+	EndGlobalSection
+EndGlobal
