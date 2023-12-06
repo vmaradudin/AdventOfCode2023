@@ -27,6 +27,5 @@ jobs:
     - name: Test
       run: dotnet test --no-build --configuration release --verbosity normal
     - name: Results
-      working-directory: /home/runner/work/AdventOfCode2023/AdventOfCode2023/src/2023
-      run: dotnet run --configuration release --no-build
+      run: ./src/2023/bin/release/net8.0/
       
