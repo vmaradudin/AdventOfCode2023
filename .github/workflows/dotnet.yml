@@ -26,6 +26,9 @@ jobs:
       run: dotnet build --no-restore --configuration release
     - name: Test
       run: dotnet test --no-build --configuration release --verbosity normal
+  execute:
+    runs-on: ubuntu-latest
+    steps:
     - name: Results
       working-directory: /home/runner/work/AdventOfCode2023/AdventOfCode2023/src/2023
       run: dotnet run --configuration release
