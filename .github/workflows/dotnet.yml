@@ -50,5 +50,5 @@ jobs:
         key: Build
         path: ./release
     - name: Run
-      run: |
-        dotnet ./release/2023.dll
+      working-directory: ./release
+      run: dotnet 2023.dll
