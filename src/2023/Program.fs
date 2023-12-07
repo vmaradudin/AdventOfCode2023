@@ -9,5 +9,6 @@ Day03.Solution
 Day04.Solution
 Day05.Solution
 Day06.Solution
+Day07.Solution
 |]
 |> Array.iter id
