@@ -24,6 +24,7 @@ module Types =
                 
         new (day:int, puzzle1: string[] -> int, puzzle2: string[] -> int) = new Solution(execute day puzzle1 puzzle2)
         new (day:int, puzzle1: string[] -> int64, puzzle2: string[] -> int64) = new Solution(execute day puzzle1 puzzle2)
+        new (day:int, puzzle1: string[] -> uint64, puzzle2: string[] -> uint64) = new Solution(execute day puzzle1 puzzle2)
         new (day:int, puzzle1: string[] -> int64, puzzle2: string[] -> int) = new Solution(execute day puzzle1 puzzle2)
         new (day:int, puzzle1: string[] -> int, puzzle2: string[] -> int64) = new Solution(execute day puzzle1 puzzle2)
         new (day:int, puzzle1: string[] -> string, puzzle2: string[] -> string) = new Solution(execute day puzzle1 puzzle2)
