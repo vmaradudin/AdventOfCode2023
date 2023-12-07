@@ -16,6 +16,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Clear cache
+      run: gh cache delete Build
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
