@@ -21,20 +21,15 @@ module Day10 =
                  |('w', s) when s='-' || s='L' || s='F' -> Some('w')
                  |('e', s) when s='-' || s='J' || s='7' -> Some('e')
                  |_ -> None)
-            |> fun a -> 
-               match a with
-               |f when (f|> Array.contains 'n') ->
-                    match f |> Array.except([|'n'|]) |> Array.head with
-                    |'s' -> '|'
-                    |'w' -> 'J'
-                    |'e' -> 'L'
-               |f when (f|> Array.contains 'w') ->
-                    match f |> Array.except([|'w'|]) |> Array.head with
-                    |'s' -> '7'
-                    |'e' -> '-'
-               |f when (f|> Array.contains 'e') ->
-                    match f |> Array.except([|'e'|]) |> Array.head with
-                    |'s' -> 'F'
+            |> function
+               |[|'n'; 's'|] | [|'s'; 'n'|] -> '|'
+               |[|'n'; 'w'|] | [|'w'; 'n'|] -> 'J'
+               |[|'n'; 'e'|] | [|'e'; 'n'|] -> 'L'
+               |[|'w'; 's'|] | [|'s'; 'w'|] -> '7'
+               |[|'w'; 'e'|] | [|'e'; 'w'|] -> '-'
+               |[|'s'; 'e'|] | [|'e'; 's'|] -> 'F'
+               |_ -> ' '
+
         input |> Array.mapi (fun x line -> if x <> sX then line else line.Replace('S', s))
         |> fun i -> (sX,sY),i
 
@@ -46,6 +41,7 @@ module Day10 =
         |'J' -> [| (x, y - 1); (x - 1, y) |]
         |'7' -> [| (x, y - 1); (x + 1, y) |]
         |'F' -> [| (x, y + 1); (x + 1, y) |]
+        |_ -> [||]
         |> Array.except [|(xp,yp)|]
         |> Array.head
 
