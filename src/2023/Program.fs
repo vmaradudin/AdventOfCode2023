@@ -16,5 +16,6 @@ Day10.Solution
 Day11.Solution
 Day12.Solution
 Day18.Solution
+Day19.Solution
 |]
 |> Array.iter id
