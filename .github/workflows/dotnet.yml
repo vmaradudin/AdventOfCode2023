@@ -59,7 +59,7 @@ jobs:
     - name: Run
       working-directory: ./release
       run: |
-          results=`dotnet 2023.dll` 
+          results=$(dotnet 2023.dll)
           echo "::notice::$results"
            
     
