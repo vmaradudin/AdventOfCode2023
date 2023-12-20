@@ -89,17 +89,67 @@ module Day10 =
             newInput
         else
             floodFill newUnvisited newInput
+   
+    let rec getLine (input:string array) start direction (stopAtS:bool) =
+        let x,y = start
+        let finish, d =
+            match direction, input[x][y] with
+            |_  , 'S' when stopAtS -> start, 'S'
+            |'U', 'F' -> start, 'R'
+            |'U', '7' -> start, 'L'
+            |'U', _   -> getLine input (x - 1, y) 'U' true
+            |'R', '7' -> start, 'D'
+            |'R', 'J' -> start, 'U'
+            |'R', _   -> getLine input (x, y + 1) 'R' true
+            |'D', 'J' -> start, 'L'
+            |'D', 'L' -> start, 'R'
+            |'D', _   -> getLine input (x + 1, y) 'D' true
+            |'L', 'L' -> start, 'U'
+            |'L', 'F' -> start, 'D'
+            |'L', _   -> getLine input (x, y - 1) 'L' true
+            
+        finish, d
 
+    let rec GetLines (square:int) (input:string array) (start:(int*int)) (direction:char) =
+        let ((xs,ys),((xf,yf),d)) = (start), (getLine input start direction false)
+        let newSquare =
+            square + 
+            match (direction) with
+            |'R' -> yf - ys
+            |'L' -> ys - yf
+            |'U' -> xs - xf
+            |'D' -> xf - xs
+        if (input[xf][yf] = 'S') 
+        then square + 1
+        else
+        GetLines newSquare input (xf,yf) d
+
+
+    let rec getLines2 (res:(char*int) array) (input:string array) (start:(int*int)) (direction:char) =
+        let ((xs,ys),((xf,yf),d)) = (start), (getLine input start direction false)
+        if (input[xf][yf] = 'S') 
+            then res
+        else
+        getLines2 (Array.append res [|direction, abs((xf - xs) + (yf - ys))|]) input (xf,yf) d
+   
+    let calculateSquare (square: int*(int*int)) (direction, steps) : (int*(int*int))=
+        let (sum,(x,y)) = square
+        match direction with
+        | 'R' | '0' -> sum + steps * x,        (x, y + steps)
+        | 'L' | '2' -> sum - steps * (x - 1),  (x, y - steps)
+        | 'D' | '1' -> sum + steps,            (x - steps, y)
+        | 'U' | '3' -> sum,                    (x + steps, y)
+        |_ -> sum, (x, y)
+   
     let puzzle1 (input:string array) = 
         let (start, fullInput) = defineS input
         find (-1,-1) start fullInput 0 |> fst |> fun a -> a / 2
 
-    let puzzle2 input = 
-        let (start, fullInput) = defineS input
-        let mask = find (-1,-1) start fullInput 0 |> snd
-        let cleanInput = 
-            fullInput |> 
-                Array.mapi (fun i line -> (Seq.map2 (fun s m -> match m with |'*' -> s.ToString() |_ -> " " ) line mask[i]) |> Array.ofSeq |> String.concat "")
-        cleanInput |> Array.map mapLine |> Array.collect id |> floodFill [|0,0|] |> String.concat "" |> Seq.sumBy (fun a -> if a = 'I' then 1 else 0) |> fun r -> r / 9
+    let puzzle2 (input:string array) = 
+        let s = input |> Array.indexed |> Array.tryPick( fun (x,line) -> line.IndexOf('S') |> function |(-1) -> None |y -> Some(x,y)) |> _.Value
+        let i = getLines2 [||] input s 'R'
+        let r = i |> Array.sumBy (snd)
+        let sq = i |> Array.fold calculateSquare (1,(0, 0))
+        GetLines 1 input s 'R'
     
     let Solution = (new Solution(10, puzzle1, puzzle2) :> ISolution).Execute
