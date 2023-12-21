@@ -3,6 +3,6 @@
 [<System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute>]
 
 [|
-Day20.Solution
+Day21.Solution
 |]
 |> Array.iter id
